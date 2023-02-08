@@ -346,7 +346,7 @@ async def get_publish(
 
     db_publish = (
         db.query(models.Publish)
-        .options(noload("items"))
+        .options(noload(models.Publish.items))
         .filter(
             models.Publish.id == publish_id,
             models.Publish.env == env.name,
