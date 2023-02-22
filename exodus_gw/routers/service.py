@@ -98,7 +98,7 @@ async def whoami(context: CallContext = deps.call_context):
     responses={200: {"description": "Sucessfully retrieved task"}},
 )
 def get_task(
-    task_id: UUID = schemas.PathTaskId, db: Session = deps.db
+    task_id: str = schemas.PathTaskId, db: Session = deps.db
 ) -> schemas.Task:
     """Return existing task object from database using given task ID."""
     task = db.query(models.Task).filter(models.Task.id == task_id).first()
