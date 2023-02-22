@@ -121,7 +121,7 @@ def publish(
     **Required roles**: `{env}-publisher`
     """
 
-    db_publish = models.Publish(id=uuid4(), env=env.name, state="PENDING")
+    db_publish = models.Publish(id=str(uuid4()), env=env.name, state="PENDING")
     db.add(db_publish)
 
     return db_publish
