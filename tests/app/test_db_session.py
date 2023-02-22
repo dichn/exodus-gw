@@ -12,7 +12,7 @@ from exodus_gw.main import app
 from exodus_gw.models import Publish
 
 # A hardcoded UUID so we can find what we've created.
-TEST_UUID = uuid.UUID("{12345678-1234-5678-1234-567812345678}")
+TEST_UUID = "12345678-1234-5678-1234-567812345678"
 
 
 # A testing endpoint which will create an object and then commit,
