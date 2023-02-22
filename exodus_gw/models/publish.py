@@ -11,8 +11,8 @@ from sqlalchemy import (
     func,
     inspect,
 )
-from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Bundle, relationship
+from sqlalchemy.types import Uuid
 
 from .base import Base
 
@@ -22,7 +22,7 @@ class Publish(Base):
     __tablename__ = "publishes"
 
     id = Column(
-        UUID(as_uuid=True),
+        Uuid(as_uuid=False),
         primary_key=True,
         default=uuid.uuid4,
     )
@@ -88,7 +88,7 @@ class Item(Base):
     __tablename__ = "items"
 
     id = Column(
-        UUID(as_uuid=True),
+        Uuid(as_uuid=False),
         primary_key=True,
         default=uuid.uuid4,
     )
@@ -97,7 +97,7 @@ class Item(Base):
     content_type = Column(String, nullable=True)
     link_to = Column(String, nullable=True)
     publish_id = Column(
-        UUID(as_uuid=True), ForeignKey("publishes.id"), nullable=False
+        Uuid(as_uuid=False), ForeignKey("publishes.id"), nullable=False
     )
 
     publish = relationship("Publish", back_populates="items")

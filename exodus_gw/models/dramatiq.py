@@ -1,6 +1,7 @@
 from sqlalchemy import Column, DateTime, String
-from sqlalchemy.dialects.postgresql import JSONB, UUID
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
+from sqlalchemy.types import Uuid
 
 from .base import Base
 
@@ -13,7 +14,7 @@ class DramatiqMessage(Base):
 
     # ID of message
     id = Column(
-        UUID(as_uuid=True),
+        Uuid(as_uuid=False),
         primary_key=True,
     )
 
