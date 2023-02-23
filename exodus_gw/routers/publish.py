@@ -209,7 +209,7 @@ def update_publish_items(
     dependencies=[auth.needs_role("publisher")],
 )
 def commit_publish(
-    publish_id: UUID = schemas.PathPublishId,
+    publish_id: str = schemas.PathPublishId,
     env: Environment = deps.env,
     db: Session = deps.db,
     settings: Settings = deps.settings,
@@ -333,7 +333,7 @@ def commit_publish(
     dependencies=[auth.needs_role("publisher")],
 )
 async def get_publish(
-    publish_id: UUID = schemas.PathPublishId,
+    publish_id: str = schemas.PathPublishId,
     env: Environment = deps.env,
     db: Session = deps.db,
 ):
