@@ -157,7 +157,7 @@ def update_publish_items(
             },
         ],
     ),
-    publish_id: UUID = schemas.PathPublishId,
+    publish_id: str = schemas.PathPublishId,
     env: Environment = deps.env,
     db: Session = deps.db,
 ) -> Dict[None, None]:
