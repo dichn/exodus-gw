@@ -77,7 +77,7 @@ def test_update_publish_items_typical(db, auth_header):
     publish_id = "11224567-e89b-12d3-a456-426614174000"
 
     publish = Publish(
-        id=uuid.UUID("{%s}" % publish_id), env="test", state="PENDING"
+        id=publish_id, env="test", state="PENDING"
     )
 
     with TestClient(app) as client:

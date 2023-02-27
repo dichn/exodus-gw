@@ -24,7 +24,7 @@ class Publish(Base):
     id = Column(
         Uuid(as_uuid=False),
         primary_key=True,
-        default=uuid.uuid4,
+        default=lambda: str(uuid.uuid4()),
     )
     env = Column(String, nullable=False)
     state = Column(String, nullable=False)
@@ -90,7 +90,7 @@ class Item(Base):
     id = Column(
         Uuid(as_uuid=False),
         primary_key=True,
-        default=uuid.uuid4,
+        default=lambda: str(uuid.uuid4()),
     )
     web_uri = Column(String, nullable=False)
     object_key = Column(String, nullable=True)
