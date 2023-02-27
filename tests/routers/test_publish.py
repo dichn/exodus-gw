@@ -163,7 +163,7 @@ def test_update_publish_items_path_normalization(db, auth_header):
     publish_id = "11224567-e89b-12d3-a456-426614174000"
 
     publish = Publish(
-        id=uuid.UUID("{%s}" % publish_id), env="test", state="PENDING"
+        id=publish_id, env="test", state="PENDING"
     )
 
     with TestClient(app) as client:
@@ -356,7 +356,7 @@ def test_update_publish_items_link_and_key(db, auth_header):
     publish_id = "11224567-e89b-12d3-a456-426614174000"
 
     publish = Publish(
-        id=uuid.UUID("{%s}" % publish_id), env="test", state="PENDING"
+        id=publish_id, env="test", state="PENDING"
     )
 
     with TestClient(app) as client:
@@ -587,7 +587,7 @@ def test_commit_publish(deadline, auth_header, db):
     publish_id = "11224567-e89b-12d3-a456-426614174000"
 
     publish = Publish(
-        id=uuid.UUID("{%s}" % publish_id), env="test", state="PENDING"
+        id=publish_id, env="test", state="PENDING"
     )
 
     url = "/test/publish/11224567-e89b-12d3-a456-426614174000/commit"
