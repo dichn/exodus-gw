@@ -120,7 +120,7 @@ class SchedulerMiddleware(Middleware):
 
         # Use a fixed message ID for this actor; this ensures there's only one
         # scheduler message in the system for this actor.
-        msg = msg.copy(message_id=actor.options["scheduled_message_id"])
+        msg = msg.copy(message_id=str(actor.options["scheduled_message_id"]))
 
         session = Session(bind=self.__db_engine)
         try:
